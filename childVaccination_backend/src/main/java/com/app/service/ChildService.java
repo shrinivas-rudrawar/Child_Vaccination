@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.app.custom_exception.ResourceNotFoundException;
 import com.app.dao.IChildDao;
 import com.app.pojos.Child;
+import com.app.pojos.Status;
 
 public class ChildService {
 	
@@ -14,6 +16,13 @@ public class ChildService {
 	
 	public List<Child> getAllChild_asPer_Parent(int pid){
 		return childDao.findChildByParent(pid);
+	}
+	public void updateStatus(int cid) {
+		// TODO Auto-generated method stub
+		Child c= childDao.findById(cid).orElseThrow(()->new ResourceNotFoundException("child not found"));	
+		c.setStatus(Status.VACCINATED);
+		childDao.save(c);
+		
 	}
 
 }

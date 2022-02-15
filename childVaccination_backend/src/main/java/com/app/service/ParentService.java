@@ -12,16 +12,18 @@ import com.app.dao.HospitalDao;
 import com.app.dao.IChildDao;
 import com.app.dao.ILoginDao;
 import com.app.dao.IParentDao;
+import com.app.dao.IParentHistoryDao;
 import com.app.dao.IRoleDao;
 import com.app.dao.IVaccineDao;
-import com.app.dto.UpdateInformation;
-import com.app.dto.ParentHistory;
+
 import com.app.dto.RegisterChild;
 import com.app.dto.RegisterParent;
+import com.app.dto.UpdateInformation;
 import com.app.pojos.Child;
 import com.app.pojos.Hospital;
 import com.app.pojos.Login;
 import com.app.pojos.Parent;
+import com.app.pojos.ParentHistory;
 import com.app.pojos.Role;
 import com.app.pojos.Vaccine_Details;
 
@@ -43,6 +45,8 @@ public class ParentService {
 	private HospitalDao hospitalDao;
 	@Autowired
 	private IChildDao childDao;
+	@Autowired
+	private IParentHistoryDao parentHistoryDao;
 	
 	
 	public Parent registerParent(RegisterParent regP) {
@@ -68,9 +72,12 @@ public class ParentService {
 	}
 
 	public String updateParentDetails(UpdateInformation p, int pid) {
-		//Parent p1=parentDao.findById(pid).orElseThrow(()->new ResourceNotFoundException("parent not found"));
-		//parentDao.save(p);
-		parentDao.updateParent(p.getEmail(), p.getAddress(), p.getMobile(), pid);
+		Parent p1=parentDao.findById(pid).orElseThrow(()->new ResourceNotFoundException("parent not found"));
+		p1.setAddress( p.getAddress());
+		p1.setEmail(p.getEmail());
+		p1.setMobile( p.getMobile());
+		parentDao.save(p1);
+		
 		return "Updated successFully";
 	}
 
@@ -79,10 +86,15 @@ public class ParentService {
 		return parentDao.findAll();
 		
 	}
-	//************************************pending**************************
+
 	public List<ParentHistory> getParentHistory() {
 		// TODO Auto-generated method stub
-		return null;
+		return parentHistoryDao.findAll();
+	}
+
+	public void deleteParent(int pid) {
+		parentDao.deleteById(pid);
+		
 	}
 
 	

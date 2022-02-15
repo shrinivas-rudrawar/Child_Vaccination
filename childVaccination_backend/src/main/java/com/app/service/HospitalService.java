@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 
 import com.app.custom_exception.ResourceNotFoundException;
 import com.app.dao.HospitalDao;
+import com.app.dao.IHospitalHistoryDao;
 import com.app.dao.ILoginDao;
 import com.app.dao.IRoleDao;
-import com.app.dto.HospitalHistory;
 import com.app.dto.RegisterHospital;
 import com.app.dto.UpdateInformation;
 import com.app.pojos.Hospital;
+import com.app.pojos.HospitaltHistory;
 import com.app.pojos.Login;
 import com.app.pojos.Role;
 
@@ -28,7 +29,8 @@ public class HospitalService {
 	private IRoleDao roleDao;
 	@Autowired
 	private ILoginDao loginDao;
-	
+	@Autowired
+	private IHospitalHistoryDao hospitalHistoryDao;
 	public Hospital registerHospital(RegisterHospital hospital) {
 		Role role=roleDao.findById(102).orElseThrow(()->new ResourceNotFoundException("Role not found !!!"));
 		
@@ -42,15 +44,24 @@ public class HospitalService {
 	}
 
 	public String updateHospitalDetails(UpdateInformation hospital, int hid) {
-		
-		hospitalDao.updateHospital(hospital.getEmail(),hospital.getAddress(),hospital.getMobile(),hid);
+		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("hospital not found"));
+		h.setAddress(hospital.getAddress());
+		h.setEmail(hospital.getEmail());
+		h.setContactNo(hospital.getMobile());
+		//hospitalDao.updateHospital(hospital.getEmail(),hospital.getAddress(),hospital.getMobile(),hid);
+		hospitalDao.save(h);
 		return "Updated successFully";
 	}
 	
-	//****************************pending***********************
-	public List<HospitalHistory> getHospitalHistory() {
+	//****************************doubt***********************repetative data found
+	public List<HospitaltHistory> getHospitalHistory() {
 		// TODO Auto-generated method stub
-		return null;
+		return hospitalHistoryDao.findAll();
+	}
+
+	public void deleteHospital(int hid) {
+		hospitalDao.deleteById(hid);
+		
 	}
 
 }
