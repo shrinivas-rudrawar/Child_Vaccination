@@ -56,7 +56,9 @@ public class HospitalService {
 	//****************************doubt***********************repetative data found
 	public List<HospitaltHistory> getHospitalHistory() {
 		// TODO Auto-generated method stub
-		return hospitalHistoryDao.findAll();
+		List<HospitaltHistory> l=hospitalHistoryDao.getHospitalHistory();
+		l.forEach(System.out::println);
+		return l;
 	}
 
 	public void deleteHospital(int hid) {
