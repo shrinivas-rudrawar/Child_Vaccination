@@ -8,14 +8,18 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.app.dto.ErrorResponse;
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb=new StringBuilder("Validation err messages :");
+		ex.getBindingResult().getFieldErrors().forEach(err->sb.append(err.getDefaultMessage()+"  "));
+		
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse("validation error",sb.toString()));
 	}
 	
 
