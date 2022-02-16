@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 @Table(name="parenthistory")
 public class ParentHistory {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	@Column
 	private int newpid;
 	@Column

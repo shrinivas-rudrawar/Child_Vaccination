@@ -20,7 +20,8 @@ import lombok.NoArgsConstructor;
 @Table(name="hospitalhistory")
 public class HospitaltHistory {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	@Column
 	private int newhid ;
 	@Column
