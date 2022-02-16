@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Past;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -37,6 +38,7 @@ public class Child implements Serializable{
 	@Column
 	private String clname;
 	@Column
+	@Past
 	private LocalDate dob;
 	@Column
 	private Status status;
