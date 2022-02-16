@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,10 +27,16 @@ public class Vaccine_Details implements Serializable{
 	@Id
 	@GeneratedValue
 	private int vid;
+	@NotEmpty(message = "Invalid vaccine name ")
+	@Length(max=45)
 	@Column(length=45)
 	private String vname;
+	@NotEmpty(message = "Invalid description ")
+	@Length(max=200)
 	@Column(length=200)
 	private String description;
+	@NotEmpty(message = "Invalid brand name ")
+	@Length(max=45)
 	@Column(length=45)
 	private String brand;
 	@Column(length=45)

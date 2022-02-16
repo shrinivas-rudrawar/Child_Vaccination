@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,8 +27,12 @@ public class Login {
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private int loginId;
+	@NotEmpty(message = "Invalid username")
+	@Length(min=4)
 	@Column(length=40)
 	private String username;
+	@NotEmpty(message = "Invalid password")
+	@Length(min=4)
 	@Column(length=20)
 	private String password;
 	
