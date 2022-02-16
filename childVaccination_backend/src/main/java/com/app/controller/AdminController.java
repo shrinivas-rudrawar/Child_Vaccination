@@ -5,15 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.app.dto.ChangePassword;
 import com.app.pojos.Hospital;
 import com.app.pojos.HospitaltHistory;
 import com.app.pojos.Parent;
 import com.app.pojos.ParentHistory;
+import com.app.service.AdminService;
 import com.app.service.HospitalService;
 import com.app.service.ParentService;
 
@@ -25,6 +28,9 @@ public class AdminController {
 	
 	@Autowired
 	private HospitalService hospitalService;
+	
+	@Autowired
+	private AdminService adminService;
 	
 	@GetMapping("/getallparent")
 	public List<Parent> getAllParent(){
@@ -58,5 +64,9 @@ public class AdminController {
 		hospitalService.deleteHospital(hid);
 	}
 	
+	@PatchMapping("/changepassword")
+	public void changePassword(@RequestBody ChangePassword obj) {
+		adminService.changePassword(obj);
+	}
 
 }

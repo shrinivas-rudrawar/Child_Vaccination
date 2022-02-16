@@ -7,4 +7,5 @@ import com.app.pojos.Login;
 public interface ILoginDao extends JpaRepository<Login, Integer>{
 	Login findByUsernameAndPassword(String username,String passwiord);
 	
+	Login findByUsername(String username);
 }
