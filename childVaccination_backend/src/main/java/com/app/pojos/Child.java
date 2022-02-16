@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -34,11 +36,13 @@ public class Child implements Serializable{
 	private int cid;
 	
 	@Column
+	@NotEmpty(message = "child name must be privided")//The annotated element must not be null nor empty.
 	private String cname;
 	@Column
+	@NotEmpty(message = "child surname must be privided")
 	private String clname;
 	@Column
-	@Past
+	@Past(message = "Date of birth should be before current date")
 	private LocalDate dob;
 	@Column
 	private Status status;
