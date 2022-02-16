@@ -35,5 +35,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<?> handleRuntimeException(RuntimeException err){
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("server side error",err.getMessage()));
 	}
+	
+	@ExceptionHandler(NullPointerException.class)
+	public ResponseEntity<?> handleNullPointerException(NullPointerException err){
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("Nullpointer error",err.getMessage()));
+	}
 
 }
