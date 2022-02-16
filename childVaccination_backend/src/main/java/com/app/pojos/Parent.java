@@ -15,10 +15,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -41,15 +43,22 @@ public class Parent {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int pid;
 	@Column(name="firstName",length=45)
+	@NotEmpty(message = "Invalid first name")
+	@Length(min=2)
 	private String fname;
+	@NotEmpty(message = "Invalid last name")
+	@Length(min=5)
 	@Column(name="lastName",length=45)
 	private String lname;
 	@Column(length=25)
 	private String email;
 	@Column(name="mobileNo")
 	private long mobile;
+	@NotEmpty(message = "Invalid Address")
+	@Length(min=5)
 	@Column
 	private String address;
+	@Length(min=12,max=12)
 	@Column
 	private long adharNo;
 	

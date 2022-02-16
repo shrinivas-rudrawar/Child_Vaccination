@@ -16,7 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -55,17 +57,20 @@ public class Hospital implements Serializable{
 	@Column
 	private long contactNo;
 	@NotBlank(message = "Address should not be empty")
+	@Length(max=50)
 	@Column(length=50)
 	private String address;
 	@OneToOne
 	@JoinColumn(name = "loginid")
+	@JsonIgnore
 	private Login loginId;
+	@NotEmpty(message="Registration number must enter")
 	@Column
 	private String regNo;
 	@CreationTimestamp
 	private LocalDate creationDate;
+	@Length(min=6,max=6)
 	@Column(name="pincode")
-	
 	private int pincode;
 
 //	@OneToMany(mappedBy = "hospital" ,fetch=FetchType.EAGER )   //hospital 1-->* Child
