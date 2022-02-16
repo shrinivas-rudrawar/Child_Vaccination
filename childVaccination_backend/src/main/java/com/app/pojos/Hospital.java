@@ -16,10 +16,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -40,12 +43,18 @@ public class Hospital implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int hid;
+	@NotBlank(message = "Hospital name must be provided")
+	@Length(min=8,max = 30,message = "Invalid Hospital name entered")
 	@Column(length=45)
 	private String hname;
+	@NotBlank(message = "email must provide")
+	@Length(min=6)
 	@Column(length=30)
 	private String email;
+	@Size(min = 10, max = 10)
 	@Column
 	private long contactNo;
+	@NotBlank(message = "Address should not be empty")
 	@Column(length=50)
 	private String address;
 	@OneToOne

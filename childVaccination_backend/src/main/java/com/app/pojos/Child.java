@@ -16,6 +16,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,17 +36,19 @@ public class Child implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cid;
-	
+	@NotBlank(message = "child name must be provided")//The annotated element must not be null nor empty.
+	@Length(min=2,max = 15,message = "Invalid name entered")
 	@Column
-	@NotEmpty(message = "child name must be privided")//The annotated element must not be null nor empty.
 	private String cname;
+	@Length(min=2,max = 15,message = "Invalid Surname entered")
+	@NotBlank(message = "child surname must be privided")
 	@Column
-	@NotEmpty(message = "child surname must be privided")
 	private String clname;
 	@Column
 	@Past(message = "Date of birth should be before current date")
 	private LocalDate dob;
 	@Column
+	
 	private Status status;
 	
 	@ManyToOne(optional=false) //many(child) *--->1 (Hospital)  bidirection
