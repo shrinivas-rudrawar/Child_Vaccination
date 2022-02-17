@@ -96,6 +96,11 @@ public class ParentService {
 		parentDao.deleteById(pid);
 		
 	}
+	
+	public List<Child> getAllChild(int pid){
+		Parent p=parentDao.findById(pid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+pid+" not found"));
+		 return p.getPChilds();
+	}
 
 	
 }
