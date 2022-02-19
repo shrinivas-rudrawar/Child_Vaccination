@@ -2,13 +2,18 @@ package com.app.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.custom_exception.ResourceNotFoundException;
 import com.app.dao.IChildDao;
 import com.app.pojos.Child;
 import com.app.pojos.Status;
 
+@Service
+@Transactional
 public class ChildService {
 	
 	@Autowired 
