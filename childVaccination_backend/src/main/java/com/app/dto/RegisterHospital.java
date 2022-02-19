@@ -20,7 +20,7 @@ public class RegisterHospital {
 	/*
 	 "hname" :"ashwini hospital",
 	 "email" :"aswini@gmail.com",
-	 "contactNo":"56352428",
+	 "contactNo":"5635242800",
 	 "address":"shivaji nagar,nanded",
 	 "regNo":"9f652h242s",
 	 "pincode":431700,
