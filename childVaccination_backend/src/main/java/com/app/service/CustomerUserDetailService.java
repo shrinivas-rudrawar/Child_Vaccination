@@ -25,8 +25,8 @@ public class CustomerUserDetailService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Login login=loginDao.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User Name not found !"));
-		
-		return null;
+		// => user found
+		return new CustomUserDetails(login);
 	}
 
 }
