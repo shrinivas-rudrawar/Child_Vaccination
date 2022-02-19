@@ -53,7 +53,7 @@ public class Hospital implements Serializable{
 	@Length(min=6)
 	@Column(length=30)
 	private String email;
-	@Size(min = 10, max = 10)
+	//@Size(min = 10, max = 10)
 	@Column
 	private long contactNo;
 	@NotBlank(message = "Address should not be empty")
@@ -69,7 +69,7 @@ public class Hospital implements Serializable{
 	private String regNo;
 	@CreationTimestamp
 	private LocalDate creationDate;
-	@Length(min=6,max=6)
+	//@Length(min=6,max=6)
 	@Column(name="pincode")
 	private int pincode;
 
@@ -92,8 +92,6 @@ public class Hospital implements Serializable{
 	@JsonIgnore
 	//@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Vaccine_Details> vaccines=new ArrayList<>();
-	
-	
 	
 	
 	//as per gavin king suggestins add helper methods in collections relation

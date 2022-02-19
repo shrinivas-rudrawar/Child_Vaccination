@@ -18,6 +18,7 @@ import com.app.pojos.Hospital;
 import com.app.pojos.HospitaltHistory;
 import com.app.pojos.Login;
 import com.app.pojos.Role;
+import com.app.pojos.UserRole;
 
 @Service
 @Transactional
@@ -37,6 +38,7 @@ public class HospitalService {
 		Login hlogin= loginDao.save(new Login(hospital.getUsername(),hospital.getPassword(),role));
 		//System.out.println(hospital);
 		return hospitalDao.save(new Hospital(hospital.getHname(),hospital.getEmail(),hospital.getContactNo(),hospital.getAddress(),hospital.getRegNo(),hlogin,hospital.getPincode()));
+//		
 	}
 	
 	public List<Hospital> getAllHospital(){

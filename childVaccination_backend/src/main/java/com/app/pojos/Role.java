@@ -22,13 +22,10 @@ import lombok.NoArgsConstructor;
 public class Role {
 	@Id
 	private int roleId;
-//	@Column(length=20)
-//	private String rname;
-//	@Column(length=45)
-//	private String description;
-	@Enumerated(EnumType.STRING)
-	@Column(length = 20)
-	private UserRole role;
+	@Column(length=20)
+	private String rname;
+	@Column(length=45)
+	private String description;
 	
 	
 }
