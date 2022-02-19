@@ -2,10 +2,11 @@ package com.app.pojos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import javax.persistence.EnumType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,12 +21,14 @@ import lombok.NoArgsConstructor;
 //this is our pojo corresponds to role_table
 public class Role {
 	@Id
-	
 	private int roleId;
-	@Column(length=20)
-	private String rname;
-	@Column(length=45)
-	private String description;
+//	@Column(length=20)
+//	private String rname;
+//	@Column(length=45)
+//	private String description;
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
+	private UserRole role;
 	
 	
 }
