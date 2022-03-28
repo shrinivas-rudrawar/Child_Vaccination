@@ -10,6 +10,7 @@ import ParentHome from './ParentHome';
 import ChildRegisterForm from './ChildRegisterForm';
 import Vaccinedetails from './Vaccinedetails';
 import Updateparent from './Updateparent';
+import Logout from './Logout';
 
 
 
@@ -43,12 +44,17 @@ class MainMenu extends React.Component{
                         <Route exact path="/childregister" component={ChildRegisterForm}></Route>
                         <Route exact path="/vaccinedetails" component={Vaccinedetails}></Route>
                         <Route exact path="/editparentprofile" component={Updateparent}></Route>
+                        <Route exact path="/logout" component={Logout}></Route>
+                        
+
+
                         
                                               
                     </div>
 
                 </div>
                 <Route path="/parenthome" component={ParentHome}></Route> 
+                <Route path="/hospitalhome" component={HositalHome}></Route>
 
             </BrowserRouter>
         </div>

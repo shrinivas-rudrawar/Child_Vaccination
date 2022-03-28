@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
+import { Route } from 'react-router';
+
 
 class ParentHome extends React.Component {
 
@@ -47,9 +49,9 @@ class ParentHome extends React.Component {
                         <li className="nav-items"><Link className="nav-link" to="/childregister"><b className="b">Add child</b></Link></li>
                         <li className="nav-items"> <Link className="nav-link" to="/editparentprofile"><b className="b">Edit profile</b></Link></li>
                         <li className="nav-items"> <Link className="nav-link" to="/logout"><b className="b">Logout</b></Link></li>
-
                     </ul>
                 </BrowserRouter>
+                
 
                 <br /><br />
                 <h2 style={{ color: 'gold' }}>Welcome {JSON.parse(localStorage.getItem("loggedinuser")).fname} {JSON.parse(localStorage.getItem("loggedinuser")).lname}</h2>
