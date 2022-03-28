@@ -34,7 +34,6 @@ class ChildRegisterForm extends React.Component {
                 alert(res);
                 this.setState({ hospitals: res.data });
             });
-
     }
 
     submitData = (e) => {
