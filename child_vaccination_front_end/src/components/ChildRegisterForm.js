@@ -8,13 +8,12 @@ import React from 'react';
     constructor(props){
         super(props)
         this.state = {
-            cfname :"",
-            clname :"",
+            fname :"",
+            lname :"",
             dob :"",
             hid:"",
             //pid:JSON.parse(localStorage.getItem("loggedinuser")),
             parent: JSON.parse(localStorage.getItem("loggedinuser")),
-            status : "PENDING",
             child:{}
         }
         

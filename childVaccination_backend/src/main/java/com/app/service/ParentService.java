@@ -25,6 +25,7 @@ import com.app.pojos.Login;
 import com.app.pojos.Parent;
 import com.app.pojos.ParentHistory;
 import com.app.pojos.Role;
+import com.app.pojos.Status;
 import com.app.pojos.Vaccine_Details;
 
 @Service
@@ -65,8 +66,8 @@ public class ParentService {
 	public void addChildDetails( RegisterChild child,int pid) {
 		Parent p=parentDao.findById(pid).orElseThrow(()->new ResourceNotFoundException("parent not found"));
 		Hospital hospital=hospitalDao.findById(child.getHid()).orElseThrow(()->new ResourceNotFoundException("Hospital not found"));
-		System.out.println(hospital);
-		Child child1=childDao.save(new Child(child.getFname(),child.getLname(),child.getDob(),hospital,p));
+		//System.out.println(hospital);
+		Child child1=childDao.save(new Child(child.getFname(),child.getLname(),child.getDob(),Status.PENDING,hospital,p));
 		p.addChild(child1);
 		parentDao.save(p);
 	}

@@ -64,13 +64,14 @@ public class Child implements Serializable{
 	@JsonBackReference
 	private Parent parent;
 	
-	public Child(String cname, String clname, LocalDate dob, Hospital hospital,Parent parent) {
+	public Child(String cname, String clname, LocalDate dob,Status status ,Hospital hospital,Parent parent) {
 		super();
 		this.cname = cname;
 		this.clname = clname;
 		this.dob = dob;
 		this.hospital = hospital;
 		this.parent=parent;
+		this.status=status;
 		//this.parent=parent;
 	}
 	

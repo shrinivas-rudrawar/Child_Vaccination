@@ -60,7 +60,7 @@ public class ParentController {
 	
 	@PostMapping("/addchild/{pid}")
 	public void addChild(@RequestBody RegisterChild child,@PathVariable("pid") int pid ) {
-		System.out.println("pid : "+pid+"\n Child : "+child);
+		//System.out.println("pid : "+pid+"\n Child : "+child);
 		parentService.addChildDetails(child,pid);
 	}
 	
