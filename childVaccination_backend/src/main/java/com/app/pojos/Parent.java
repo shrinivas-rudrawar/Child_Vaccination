@@ -69,7 +69,7 @@ public class Parent {
 	private Login loginDetails;
 	
 	
-	@OneToMany(mappedBy = "parent"/* , fetch = FetchType.EAGER */,cascade = CascadeType.ALL) //MAPPED BY AT OWING SIDE	
+	@OneToMany(mappedBy = "parent" , fetch = FetchType.EAGER ,cascade = CascadeType.ALL) //MAPPED BY AT OWING SIDE	
 	@JsonIgnoreProperties("parent")
 	//@Fetch(value = FetchMode.SUBSELECT)
 	@JsonManagedReference

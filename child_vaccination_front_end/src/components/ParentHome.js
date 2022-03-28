@@ -2,56 +2,90 @@ import axios from 'axios';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 
- class ParentHome extends React.Component {
+class ParentHome extends React.Component {
 
-    // "pid": 1,
-    // "fname": "shri",
-    // "lname": "rudrawar",
-    // "email": "shri@gmail.com",
-    // "mobile": 7841892752,
-    // "address": "nanded",
-    // "adharNo": 803435099394,
-    // "pChilds": [
-    //     {
-    //         "cid": 1,
-    //         "cname": "shreyas",
-    //         "clname": "shinde",
-    //         "dob": "2003-06-22",
-    //         "status": "VACCINATED"
-    //     }
-    // ],
     constructor(props) {
         super(props)
         this.state = {
             parent: JSON.parse(localStorage.getItem("loggedinuser")),
-            childs: []
+            childs: [],
             // vaccineprogress: [],
             // cid: ""
         }
     }
 
-    render() {
-        return (
-            
-            <div>
-                <BrowserRouter>
-                <ul className="nav" style={{marginLeft:"20%"}}>
-                       <li className="nav-items"><Link className="nav-link" to="/vaccinedetails"><b className="b">Vaccine Info</b> </Link> </li>
-                       <li className="nav-items"><Link  className="nav-link" to="/addchild"><b className="b">Add child</b></Link></li>
-                       <li className="nav-items"> <Link  className="nav-link" to="/editparentprofile"><b className="b">Edit profile</b></Link></li>
-                       <li className="nav-items"> <Link  className="nav-link" to="/logout"><b className="b">Logout</b></Link></li>
-
-                </ul>
-                </BrowserRouter>
-                   
-            </div>
-            // console.log(this.state.parent.pChilds)
-          
-            
-        )
+    componentDidMount = () => {
+        axios
+            .get(`http://localhost:9090/parent/getallchilds/${this.state.parent.pid}`)
+            .then(res => {
+                alert(res);
+                this.setState({ childs: res.data });
+            });
 
     }
 
+    handleChange = (e) => {
+        const nm = e.target.name;
+        const val = e.target.value;
+        this.setState({ [nm]: val });
+    }
+
+
+    logout = () => {
+        //mystore.dispatch({type:'LOGGEDOUT'});
+        localStorage.removeItem("loggedinuser");
+        this.props.history.push("/login");
+    }
+
+    render() {
+        return (
+
+            <div>
+                <BrowserRouter>
+                    <ul className="nav" style={{ marginLeft: "20%" }}>
+                        <li className="nav-items"><Link className="nav-link" to="/vaccinedetails"><b className="b">Vaccine Info</b> </Link> </li>
+                        <li className="nav-items"><Link className="nav-link" to="/childregister"><b className="b">Add child</b></Link></li>
+                        <li className="nav-items"> <Link className="nav-link" to="/editparentprofile"><b className="b">Edit profile</b></Link></li>
+                        <li className="nav-items"> <Link className="nav-link" to="/logout"><b className="b">Logout</b></Link></li>
+
+                    </ul>
+                </BrowserRouter>
+
+                <br /><br />
+                <h2 style={{ color: 'gold' }}>Welcome {JSON.parse(localStorage.getItem("loggedinuser")).fname} {JSON.parse(localStorage.getItem("loggedinuser")).lname}</h2>
+
+
+                <div><br /><br />
+                    <h3 style={{ color: 'wheat' }}>Child List</h3>
+
+
+                    <table className="table table-bordered table-striped table-dark" style={{ width: "70%" }}>
+        
+
+                        <thead>
+                            <th>Child ID</th>
+                            <th>CHILD FIRST NAME</th>
+                            <th>CHILD LAST NAME</th>
+                            <th>DOB</th>
+                            <th>STATUS</th>
+
+                        </thead>
+                        {this.state.childs.map(child =>
+
+                            <tbody>
+                                <td>{child.cid}</td>
+                                <td>{child.cname}</td>
+                                <td>{child.clname}</td>
+                                <td>{child.dob}</td>
+                                <td>{child.status}</td>
+                            </tbody>)
+                        }
+                    </table>
+                </div>
+
+            </div>
+        )
+    }
 }
 
 export default ParentHome;
