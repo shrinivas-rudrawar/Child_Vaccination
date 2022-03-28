@@ -14,6 +14,10 @@ import Logout from './Logout';
 
 
 
+import HositalHome from './HospitalHome';
+
+
+
 class MainMenu extends React.Component{
     constructor(props){
         super(props)
