@@ -3,6 +3,8 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { Route } from 'react-router';
 import Home from './Home';
 import mystore from './store';
+import ParentRegistrationForm from './ParentRegistrationForm';
+import Loginpage from './Loginpage';
 
 
 
@@ -12,7 +14,6 @@ class MainMenu extends React.Component{
         this.state={
             flag: false
         }
-
     }
 
     render(){
@@ -31,7 +32,8 @@ class MainMenu extends React.Component{
                     </ul>
                     <div>
                         <Route  exact path="/" component={Home} /> 
-                        <Route  exact path="/parentregister" component={PatientForm}></Route>
+                        <Route path="/login" component={Loginpage}></Route>
+                        <Route  exact path="/parentregister" component={ParentRegistrationForm}></Route>
                     </div>
 
                 </div>

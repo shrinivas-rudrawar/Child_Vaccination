@@ -38,10 +38,10 @@ public class Child implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cid;
 	@NotBlank(message = "child name must be provided")//The annotated element must not be null nor empty.
-	@Length(min=2,max = 15,message = "Invalid name entered")
+	//@Length(min=2,max = 15,message = "Invalid name entered")
 	@Column
 	private String cname;
-	@Length(min=2,max = 15,message = "Invalid Surname entered")
+	//@Length(min=2,max = 15,message = "Invalid Surname entered")
 	@NotBlank(message = "child surname must be privided")
 	@Column
 	private String clname;

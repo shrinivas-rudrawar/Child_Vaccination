@@ -28,11 +28,11 @@ public class Vaccine_Details implements Serializable{
 	@GeneratedValue
 	private int vid;
 	@NotEmpty(message = "Invalid vaccine name ")
-	@Length(max=45)
+	//@Length(max=45)
 	@Column(length=45)
 	private String vname;
 	@NotEmpty(message = "Invalid description ")
-	@Length(max=200)
+	//@Length(max=200)
 	@Column(length=200)
 	private String description;
 	@NotEmpty(message = "Invalid brand name ")

@@ -46,18 +46,18 @@ public class Hospital implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int hid;
 	@NotBlank(message = "Hospital name must be provided")
-	@Length(min=8,max = 30,message = "Invalid Hospital name entered")
+	//@Length(min=8,max = 30,message = "Invalid Hospital name entered")
 	@Column(length=45)
 	private String hname;
 	@NotBlank(message = "email must provide")
-	@Length(min=6)
+	//@Length(min=6)
 	@Column(length=30)
 	private String email;
 	//@Size(min = 10, max = 10)
 	@Column
 	private long contactNo;
 	@NotBlank(message = "Address should not be empty")
-	@Length(max=50)
+	//@Length(max=50)
 	@Column(length=50)
 	private String address;
 	@OneToOne

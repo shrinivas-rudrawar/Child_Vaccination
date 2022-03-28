@@ -27,12 +27,12 @@ public class Login {
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private int loginId;
 	@NotEmpty(message = "Invalid username")
-	@Length(min=4)
-	@Column(length=40)
+	
+	@Column
 	private String username;
 	@NotEmpty(message = "Invalid password")
-	@Length(min=4)
-	@Column(length=20)
+	
+	@Column
 	private String password;
 	
 	@OneToOne
