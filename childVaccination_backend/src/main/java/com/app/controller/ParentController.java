@@ -3,6 +3,7 @@ package com.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,8 +21,9 @@ import com.app.pojos.Vaccine_Details;
 import com.app.service.HospitalService;
 import com.app.service.ParentService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping
+@RequestMapping("/parent")
 public class ParentController {
 	
 	@Autowired

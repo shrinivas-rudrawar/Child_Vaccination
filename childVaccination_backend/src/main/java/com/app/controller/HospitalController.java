@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +15,9 @@ import com.app.pojos.Hospital;
 import com.app.service.ChildService;
 import com.app.service.HospitalService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping
+@RequestMapping("/hospital")
 public class HospitalController {
 	
 	@Autowired
