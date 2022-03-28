@@ -37,7 +37,7 @@ class Loginpage extends React.Component{
 
         fetch("http://localhost:9090/login",reqoptions)
         .then(resp => resp.text())
-        .then(data => {if(data.length!=0)
+        .then(data => {if(data.length!==0)
             {
                 const json = JSON.parse(data);
                 console.log("in login page object :"+json);
