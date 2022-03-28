@@ -34,7 +34,7 @@ class ParentHome extends React.Component {
     logout = () => {
         //mystore.dispatch({type:'LOGGEDOUT'});
         localStorage.removeItem("loggedinuser");
-        this.props.history.push("/login");
+        this.props.history.push("/");
     }
 
     render() {
@@ -82,6 +82,7 @@ class ParentHome extends React.Component {
                         }
                     </table>
                 </div>
+                <button type="submit" class="btn btn-info col-md-2 rounded-pill" onClick={this.logout}>Sign Out</button><br />
 
             </div>
         )

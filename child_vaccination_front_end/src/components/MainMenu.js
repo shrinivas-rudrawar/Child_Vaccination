@@ -9,6 +9,8 @@ import HospitalRegisterForm from './HospitalRegisterForm';
 import ParentHome from './ParentHome';
 import ChildRegisterForm from './ChildRegisterForm';
 import Vaccinedetails from './Vaccinedetails';
+import Updateparent from './Updateparent';
+
 
 
 class MainMenu extends React.Component{
@@ -40,6 +42,8 @@ class MainMenu extends React.Component{
                         <Route  exact path="/hospitalregister" component={HospitalRegisterForm}></Route>
                         <Route exact path="/childregister" component={ChildRegisterForm}></Route>
                         <Route exact path="/vaccinedetails" component={Vaccinedetails}></Route>
+                        <Route exact path="/editparentprofile" component={Updateparent}></Route>
+                        
                                               
                     </div>
 
