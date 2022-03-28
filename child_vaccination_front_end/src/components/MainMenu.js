@@ -5,6 +5,7 @@ import Home from './Home';
 import mystore from './store';
 import ParentRegistrationForm from './ParentRegistrationForm';
 import Loginpage from './Loginpage';
+import HospitalRegisterForm from './HospitalRegisterForm';
 
 
 
@@ -34,6 +35,7 @@ class MainMenu extends React.Component{
                         <Route  exact path="/" component={Home} /> 
                         <Route path="/login" component={Loginpage}></Route>
                         <Route  exact path="/parentregister" component={ParentRegistrationForm}></Route>
+                        <Route path="/hospitalregister" component={HospitalRegisterForm}></Route>
                     </div>
 
                 </div>
