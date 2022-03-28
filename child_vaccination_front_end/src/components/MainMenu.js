@@ -31,7 +31,7 @@ class MainMenu extends React.Component{
                     </ul>
                     <div>
                         <Route  exact path="/" component={Home} /> 
-                        <Route path="/parentregister" component={PatientForm}></Route>
+                        <Route  exact path="/parentregister" component={PatientForm}></Route>
                     </div>
 
                 </div>
