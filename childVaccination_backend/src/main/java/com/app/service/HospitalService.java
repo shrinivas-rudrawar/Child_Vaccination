@@ -14,9 +14,11 @@ import com.app.dao.ILoginDao;
 import com.app.dao.IRoleDao;
 import com.app.dto.RegisterHospital;
 import com.app.dto.UpdateInformation;
+import com.app.pojos.Child;
 import com.app.pojos.Hospital;
 import com.app.pojos.HospitaltHistory;
 import com.app.pojos.Login;
+import com.app.pojos.Parent;
 import com.app.pojos.Role;
 import com.app.pojos.UserRole;
 
@@ -66,6 +68,11 @@ public class HospitalService {
 	public void deleteHospital(int hid) {
 		hospitalDao.deleteById(hid);
 		
+	}
+	
+	public List<Child> getAllChild(int hid){
+		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
+		 return h.getHChilds();
 	}
 
 }

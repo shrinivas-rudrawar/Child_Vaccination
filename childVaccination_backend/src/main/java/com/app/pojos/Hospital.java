@@ -118,5 +118,6 @@ public class Hospital implements Serializable{
 		this.regNo = regNo;
 		this.pincode=pincode;
 	}
+	
 		
 }
