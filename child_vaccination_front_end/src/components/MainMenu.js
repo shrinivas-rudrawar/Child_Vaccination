@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Route } from 'react-router';
 import Home from './Home';
+import mystore from './store';
 
 
 
@@ -30,6 +31,7 @@ class MainMenu extends React.Component{
                     </ul>
                     <div>
                         <Route  exact path="/" component={Home} /> 
+                        <Route path="/parentregister" component={PatientForm}></Route>
                     </div>
 
                 </div>
@@ -41,3 +43,4 @@ class MainMenu extends React.Component{
 
 }
 
+export default MainMenu;
