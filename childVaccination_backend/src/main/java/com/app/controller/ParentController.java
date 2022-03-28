@@ -60,12 +60,14 @@ public class ParentController {
 	
 	@PostMapping("/addchild/{pid}")
 	public void addChild(@RequestBody RegisterChild child,@PathVariable("pid") int pid ) {
-		//System.out.println("pid : "+pid+"\n Child : "+child);
+		System.out.println("pid : "+pid+"\n Child : "+child);
+		
 		parentService.addChildDetails(child,pid);
 	}
 	
 	@PatchMapping("/updateparent/{pid}")
 	public String updateParent(@RequestBody UpdateInformation p,@PathVariable("pid") int pid) {
+		
 		return parentService.updateParentDetails(p,pid);
 	}
 	
