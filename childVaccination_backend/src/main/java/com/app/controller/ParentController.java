@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.RegisterChild;
 import com.app.dto.RegisterParent;
 import com.app.dto.UpdateInformation;
+import com.app.pojos.Child;
 import com.app.pojos.Hospital;
 import com.app.pojos.Parent;
 import com.app.pojos.Vaccine_Details;
@@ -38,6 +39,12 @@ public class ParentController {
 	public Parent addParent(@RequestBody RegisterParent regP) {
 		
 		return parentService.registerParent(regP);
+	}
+	
+	@GetMapping("/getallchilds/{pid}")
+	public List<Child> getAllChilds(@PathVariable("pid") int pid){
+		return parentService.getAllChild(pid);
+		
 	}
 	
 	@GetMapping("/getallvaccines")

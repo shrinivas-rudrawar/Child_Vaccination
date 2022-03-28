@@ -6,7 +6,7 @@ import mystore from './store';
 import ParentRegistrationForm from './ParentRegistrationForm';
 import Loginpage from './Loginpage';
 import HospitalRegisterForm from './HospitalRegisterForm';
-
+import ParentHome from './ParentHome';
 
 
 class MainMenu extends React.Component{
@@ -36,10 +36,11 @@ class MainMenu extends React.Component{
                         <Route path="/login" component={Loginpage}></Route>
                         <Route  exact path="/parentregister" component={ParentRegistrationForm}></Route>
                         <Route path="/hospitalregister" component={HospitalRegisterForm}></Route>
-                         <Route path="/parenthome" component={ParentHome}></Route> {/* revise */}
+                         
                     </div>
 
                 </div>
+                <Route path="/parenthome" component={ParentHome}></Route> 
 
             </BrowserRouter>
         </div>
