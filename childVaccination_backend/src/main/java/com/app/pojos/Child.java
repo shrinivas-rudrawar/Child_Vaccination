@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,9 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 
+import org.hibernate.type.EnumType;
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -48,7 +49,7 @@ public class Child implements Serializable{
 	@Past(message = "Date of birth should be before current date")
 	private LocalDate dob;
 	@Column
-	
+	@Enumerated(javax.persistence.EnumType.STRING)
 	private Status status;
 	
 	@ManyToOne(optional=false) //many(child) *--->1 (Hospital)  bidirection
