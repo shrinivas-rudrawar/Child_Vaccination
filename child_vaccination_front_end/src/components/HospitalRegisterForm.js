@@ -17,6 +17,7 @@ class HospitalRegisterForm extends React.Component{
           address: "",
           username: "",
           password: "",
+          pincode:"",
           hospital:{}
         }
       }
@@ -32,13 +33,14 @@ class HospitalRegisterForm extends React.Component{
         e.preventDefault()
         console.log(this.state)
         axios
-          .post('http://localhost:9090/hospitalreg', this.state)
+          .post('http://localhost:9090/hospital/hospitalregister', this.state)
           .then(response => {
             alert("Registration Successful!")
             this.props.history.push("/login");
           })
           .catch(error => {
             alert("Duplicate Username/Password")
+            this.props.history.push("/hospitalregister");
           })
       }
 
@@ -73,8 +75,14 @@ class HospitalRegisterForm extends React.Component{
                     <label className="lb"  for="address">Enter Address :</label>
                     <input type="text"  id="address" className="form-control" name="address" onChange={this.handleChange} />
                     </div>
+
                     <div className="form-group" >
-                    <label className="lb" for="username">Enter Username :</label>
+                    <label className="lb" for="pincode">Enter Pincode:</label>
+                    <input type="number" id="pincode" className="form-control" name="pincode" onChange={this.handleChange}/>
+                    </div>
+
+                    <div className="form-group" >
+                    <label className="lb" for="username">Enter Username  :</label>
                     <input type="text" id="username" className="form-control" name="username" onChange={this.handleChange}/>
                     </div>
 
@@ -95,3 +103,5 @@ class HospitalRegisterForm extends React.Component{
     }
 
 }
+
+export default HospitalRegisterForm;

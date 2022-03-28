@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterHospital {
-	private String hname;
-	
+	private String hname;	
 	private String email;
 	private long contactNo;
 	private String address;

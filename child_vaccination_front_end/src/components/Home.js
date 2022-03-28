@@ -16,7 +16,7 @@ class Home extends React.Component {
                     style={{ height: "550px"}}
                     className="d-block w-100"
                     src="https://www.expatica.com/app/uploads/sites/5/2019/07/vaccinations-in-france-1920x1080.jpg"
-                   
+                    alt="Child Vaccination"
                   />
                  
     
@@ -35,6 +35,7 @@ class Home extends React.Component {
                     style={{ height: "550px"}}
                     className="cimg d-block w-100"
                     src="https://www.biospace.com/getasset/11f6fa49-df4b-4929-8d07-34a38610e3c4/"
+                    alt="Child Vaccination"
                   />
                   <Carousel.Caption>
                     <h4 style={{color:"maroon"}}>Immunization</h4>
@@ -49,6 +50,7 @@ class Home extends React.Component {
                     style={{ height: "550px"}}
                     className="d-block w-100" 
                     src="https://www.amrihospitals.in/sites/default/files/vaccines__.jpg"
+                    alt="Child Vaccination"
                   />
                   <Carousel.Caption>
                     <h4 style={{color:"white"}}>Importance</h4>
