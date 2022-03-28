@@ -48,8 +48,8 @@ class Loginpage extends React.Component{
                     localStorage.setItem("loggedinuser",JSON.stringify(this.state.parent));
                     mystore.dispatch({type:'LOGGEDIN'});
                     this.setState({loginerror:"You Have Successfully Logged In as parent"});
-                    var pid=json.pid;                 
-                   this.props.history.push("/parenthome");//pending
+                                    
+                   this.props.history.push("/parenthome");
                 }
                 else if(json.hid)
                 {
@@ -57,7 +57,7 @@ class Loginpage extends React.Component{
                     localStorage.setItem("loggedinhosp",JSON.stringify(this.state.hospital));
                     mystore.dispatch({type:'LOGGEDIN'});
                     this.setState({loginerror:"You Have Successfully Logged as hospital"});
-                    this.props.history.push("/hospitalhome");//pending
+                    this.props.history.push("/hospitalhome");
                 }
                 else 
                 {

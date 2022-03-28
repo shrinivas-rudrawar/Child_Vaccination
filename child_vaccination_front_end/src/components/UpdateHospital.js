@@ -1,13 +1,15 @@
+
 import axios from 'axios';
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-class Updateparent extends React.Component {
+
+class UpdateHospital extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            parent: JSON.parse(localStorage.getItem("loggedinuser")),
+            hospital: JSON.parse(localStorage.getItem("loggedinhosp")),
             email: "",
             address: "",
             mobile: ""
@@ -25,14 +27,14 @@ class Updateparent extends React.Component {
         e.preventDefault()
         console.log(this.state)
         axios
-            .patch(`http://localhost:9090/parent/updateparent/${this.state.parent.pid}`, this.state)
+            .patch(`http://localhost:9090/hospital/updatehospital/${this.state.hospital.hid}`, this.state)
             .then(response => {
                 alert("Updated  Successful!")
-                this.props.history.push("/parenthome");
+                this.props.history.push("/hospitalhome");
             })
             .catch(error => {
                 alert("Duplicate Username/Password")
-                this.props.history.push("/editparentprofile");
+                this.props.history.push("/edithospital");
             })
     }
 
@@ -48,8 +50,8 @@ class Updateparent extends React.Component {
                         <Form.Group className="mb-3" controlId="formBasicempid">
                             <Form.Label>EmailID :</Form.Label>
                             <Form.Control type="text" placeholder="Enter empid"
-                                value={this.state.parent.email}
-                                onChange={this.handleChange} />
+                                value={this.state.hospital.email}
+                            />
 
                         </Form.Group>
 
@@ -67,17 +69,17 @@ class Updateparent extends React.Component {
 
                         <div className="form-group" >
                             <label className="lb" for="email"> EmailID :</label>
-                            <input type="text" id="email" className="form-control" value={this.state.parent.email} name="email" onChange={this.handleChange} />
+                            <input type="text" id="email" className="form-control" value={this.state.hospital.email} name="email" onChange={this.handleChange} />
                         </div>
                         <div className="form-group" >
                             <label className="lb" for="contactNo">Enter Contact No. :</label>
-                            <input type="number" id="contactNo" className="form-control" value={this.state.parent.mobile} name="contactNo" onChange={this.handleChange} />
+                            <input type="number" id="contactNo" className="form-control" value={this.state.hospital.contactNo} name="contactNo" onChange={this.handleChange} />
                         </div>
 
 
                         <div className="form-group" >
                             <label className="lb" for="address">Enter Address :</label>
-                            <input type="text" id="address" className="form-control" value={this.state.parent.address} name="address" onChange={this.handleChange} />
+                            <input type="text" id="address" className="form-control" value={this.state.hospital.address} name="address" onChange={this.handleChange} />
                         </div>
 
                         <br></br>
@@ -93,4 +95,4 @@ class Updateparent extends React.Component {
 
 }
 
-export default Updateparent;
+export default UpdateHospital;

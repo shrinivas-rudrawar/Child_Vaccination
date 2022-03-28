@@ -51,9 +51,17 @@ class ChildRegisterForm extends React.Component {
             })
     }
 
+    backtoHome  = (e) => {
+        this.props.history.push("/parenthome");
+    }
+
     render() {
         return (
             <div className="container form-center" >
+             <button class="btn btn-primary col-md-1" type="button" onClick={this.backtoHome} style={{ float: "right" }} >Back</button><br/>
+
+             
+
                 <h1 className="header">Child Registration</h1><br />
                 <form method='post'>
                     <div className="form-group" class="col-md-3">

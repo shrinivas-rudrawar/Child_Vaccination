@@ -21,14 +21,17 @@ class Vaccinedetails extends React.Component {
                 this.setState({ vaccines: res.data });
             });
     }
+    backtoHome  = (e) => {
+        this.props.history.push("/parenthome");
+    }
 
     render() {
         return (
 
             <div><br /><br />
+             <button class="btn btn-primary col-md-1" type="button" onClick={this.backtoHome} style={{ float: "right" }} >Back</button><br/>
+
                     <h3 style={{ color: 'wheat' }}>Vaccines List</h3>
-
-
                     <table className="table table-bordered table-striped table-dark" style={{ width: "70%" }}>
 
                         <thead>

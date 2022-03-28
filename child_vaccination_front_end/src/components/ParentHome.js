@@ -46,7 +46,7 @@ class ParentHome extends React.Component {
                 <BrowserRouter>
                     <ul className="nav" style={{ marginLeft: "20%" }}>
                         <li className="nav-items"><Link className="nav-link" to="/vaccinedetails"><b className="b">Vaccine Info</b> </Link> </li>
-                        <li className="nav-items"><Link className="nav-link" to="/childregister"><b className="b">Add child</b></Link></li>
+                        <li className="nav-items"><a className="nav-link" href="/childregister"><b className="b">Add child</b></a></li>
                         <li className="nav-items"> <Link className="nav-link" to="/editparentprofile"><b className="b">Edit profile</b></Link></li>
                         <li className="nav-items"> <Link className="nav-link" to="/logout"><b className="b">Logout</b></Link></li>
                     </ul>
