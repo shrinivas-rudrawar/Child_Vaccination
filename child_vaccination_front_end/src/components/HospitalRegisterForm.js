@@ -5,14 +5,7 @@ import "./mainmenu.css"
 
 
 class HospitalRegisterForm extends React.Component{
-    // private String hname;	
-	// private String email;
-	// private long contactNo;
-	// private String address;
-	// private String regNo;
-	// private String username;
-	// private String password;
-	// private int pincode;
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -28,6 +21,27 @@ class HospitalRegisterForm extends React.Component{
         }
       }
 
+      handleChange = (e) =>{
+        const nm = e.target.name;
+        const val = e.target.value;
+        this.setState({[nm]:val});
+
+      }
+
+      submitData = (e) => {
+        e.preventDefault()
+        console.log(this.state)
+        axios
+          .post('http://localhost:9090/hospitalreg', this.state)
+          .then(response => {
+            alert("Registration Successful!")
+            this.props.history.push("/login");
+          })
+          .catch(error => {
+            alert("Duplicate Username/Password")
+          })
+      }
+
       render(){
         return(
           <div>
@@ -37,8 +51,8 @@ class HospitalRegisterForm extends React.Component{
               
               <form className="hospital">
                 <div className="form-group">
-                <label className="lb" for="hospitalname">Enter Hospital Name :</label>
-                <input type="text" id="hospitalname" className="form-control" name="hospitalname"onChange={this.handleChange} />
+                <label className="lb" for="hname">Enter Hospital Name :</label>
+                <input type="text" id="hname" className="form-control" name="hname"onChange={this.handleChange} />
                 </div>
                 
                 <div className="form-group" >
@@ -46,13 +60,13 @@ class HospitalRegisterForm extends React.Component{
                     <input type="text" id="email" className="form-control" name="email" onChange={this.handleChange} />
                     </div>
                     <div className="form-group" >
-                    <label className="lb" for="contact">Enter Contact No. :</label>
-                    <input type="number" id="contact" className="form-control" name="contact" onChange={this.handleChange} />
+                    <label className="lb" for="contactNo">Enter Contact No. :</label>
+                    <input type="number" id="contactNo" className="form-control" name="contactNo" onChange={this.handleChange} />
                     </div>
 
                     <div className="form-group"  >
-                    <label className="lb" for="regno">Enter Register No. :</label>
-                    <input type="text" id="regno" className="form-control" name="regno" onChange={this.handleChange} />
+                    <label className="lb" for="regNo">Enter Register No. :</label>
+                    <input type="text" id="regNo" className="form-control" name="regNo" onChange={this.handleChange} />
                     </div>
 
                     <div className="form-group" >
