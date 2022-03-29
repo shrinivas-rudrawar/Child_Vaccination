@@ -20,7 +20,7 @@ class ParentHome extends React.Component {
         axios
             .get(`http://localhost:9090/parent/getallchilds/${this.state.parent.pid}`)
             .then(res => {
-                alert(res);
+                //alert(res);
                 this.setState({ childs: res.data });
             });
 
