@@ -35,13 +35,18 @@ class Updateparent extends React.Component {
                 this.props.history.push("/editparentprofile");
             })
     }
+    backtoHome  = (e) => {
+        this.props.history.push("/parenthome");
+    }
 
 
     render() {
 
         return (
             <div>
+                <button class="btn btn-primary col-md-1" type="button" onClick={this.backtoHome} style={{ float: "right" }} >Back</button><br/>
                 <div className="container"><br />
+                
                     <h1 className="header2">Parent Updation</h1>
 
                     <form>
