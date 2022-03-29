@@ -63,11 +63,13 @@ public class AdminController {
 	//tested
 	@DeleteMapping("/deleteHospital/{hid}")
 	public void deleteHospital(@PathVariable int hid) {
+		System.out.println("hid : "+hid);
 		hospitalService.deleteHospital(hid);
 	}
 	
 	@PatchMapping("/changepassword")
 	public void changePassword(@RequestBody ChangePassword obj) {
+		System.out.println(obj.toString());
 		adminService.changePassword(obj);
 	}
 
