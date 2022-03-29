@@ -49,7 +49,7 @@ class Home extends React.Component {
                   <img
                     style={{ height: "550px"}}
                     className="d-block w-100" 
-                    src="https://www.amrihospitals.in/sites/default/files/vaccines__.jpg"
+                    src="http://127.0.0.1:5500/src/images/child1.jpg"
                     alt="Child Vaccination"
                   />
                   <Carousel.Caption>
