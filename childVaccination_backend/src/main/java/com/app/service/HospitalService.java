@@ -21,6 +21,7 @@ import com.app.pojos.Login;
 import com.app.pojos.Parent;
 import com.app.pojos.Role;
 import com.app.pojos.UserRole;
+import com.app.pojos.Vaccine_Details;
 
 @Service
 @Transactional
@@ -73,6 +74,11 @@ public class HospitalService {
 	public List<Child> getAllChild(int hid){
 		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
 		 return h.getHChilds();
+	}
+
+	public List<Vaccine_Details> getallVaccines(int hid) {
+		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
+		return h.getVaccines();
 	}
 
 }
