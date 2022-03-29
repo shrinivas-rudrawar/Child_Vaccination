@@ -23,7 +23,6 @@ class ParentHome extends React.Component {
                 //alert(res);
                 this.setState({ childs: res.data });
             });
-
     }
 
     handleChange = (e) => {
