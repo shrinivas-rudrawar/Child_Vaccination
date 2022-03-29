@@ -15,6 +15,8 @@ import Logout from './Logout';
 import UpdateHospital from './UpdateHospital';
 import HospitalHome from './HospitalHome';
 
+import AdminHome from './AdminHome';
+
 
 
 class MainMenu extends React.Component {
@@ -52,6 +54,8 @@ class MainMenu extends React.Component {
 
 
                             <Route exact path="/edithospital" component={UpdateHospital}></Route>
+
+                            <Route path="/adminhome" component={AdminHome}></Route>
 
 
                         </div>
