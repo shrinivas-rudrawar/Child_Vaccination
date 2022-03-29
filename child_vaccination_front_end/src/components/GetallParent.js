@@ -21,6 +21,15 @@ class GetallParent extends React.Component{
         this.props.history.push("/adminhome");
     }
 
+    updateStatus = (pid) => {
+
+        axios.delete(`http://localhost:9090/admin/deleteParent/${pid}`)
+            .then(res => {
+
+                this.props.history.push("/getallparent");
+            });
+    }
+
     render(){
         return(
             <div>
@@ -51,7 +60,8 @@ class GetallParent extends React.Component{
                                 <td>{p.mobile}</td>
                                 <td>{p.address}</td>
                                 <td>{p.adharNo}</td>
-                                <td>{p.creationDate}</td>                               
+                                <td>{p.creationDate}</td> 
+                                <td><button type="button" className="btn  btn-info  rounded-pill" style={{color :"white"}} onClick={() => this.updateStatus(p.pid)}>Delete</button></td>                              
                             </tbody>)
                         }
                        
