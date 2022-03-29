@@ -16,6 +16,7 @@ import com.app.dto.RegisterHospital;
 import com.app.dto.UpdateInformation;
 import com.app.pojos.Child;
 import com.app.pojos.Hospital;
+import com.app.pojos.Vaccine_Details;
 import com.app.service.ChildService;
 import com.app.service.HospitalService;
 
@@ -49,5 +50,11 @@ public class HospitalController {
 	public List<Child> getAllChilds(@PathVariable("hid") int hid){
 		return hospitalService.getAllChild(hid);		
 	}
+	
+	@GetMapping("/getallvaccines/{hid}")
+	public List<Vaccine_Details> getallVaccines(@PathVariable("hid") int hid){
+		return hospitalService.getallVaccines(hid);		
+	}
+	
 
 }
