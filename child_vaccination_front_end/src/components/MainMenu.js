@@ -16,6 +16,10 @@ import UpdateHospital from './UpdateHospital';
 import HospitalHome from './HospitalHome';
 
 import AdminHome from './AdminHome';
+import GetallParent from './GetallParent';
+import GetallHospital from './GetallHospital';
+import GetparentHistory from './GetparentHistory';
+import GethospitalHistory from './GethospitalHistory';
 
 
 
@@ -56,6 +60,10 @@ class MainMenu extends React.Component {
                             <Route exact path="/edithospital" component={UpdateHospital}></Route>
 
                             <Route path="/adminhome" component={AdminHome}></Route>
+                            <Route path="/getallparent" component={GetallParent}></Route>
+                            <Route path="/getallhospital" component={GetallHospital}></Route>
+                            <Route path="/getparenthistory" component={GetparentHistory}></Route>
+                            <Route path="/gethospitalhistory" component={GethospitalHistory}></Route>
 
 
                         </div>
