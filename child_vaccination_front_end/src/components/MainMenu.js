@@ -21,6 +21,11 @@ import GetallHospital from './GetallHospital';
 import GetparentHistory from './GetparentHistory';
 import GethospitalHistory from './GethospitalHistory';
 
+import ForgotPassword from './ForgotPassword';
+import Certificate from './Certificate';
+
+
+
 
 
 class MainMenu extends React.Component {
@@ -64,6 +69,10 @@ class MainMenu extends React.Component {
                             <Route path="/getallhospital" component={GetallHospital}></Route>
                             <Route path="/getparenthistory" component={GetparentHistory}></Route>
                             <Route path="/gethospitalhistory" component={GethospitalHistory}></Route>
+
+                            <Route path="/forgotpassword" component={ForgotPassword}></Route>
+
+                            <Route path="/getcertificate/:cid" component={Certificate}></Route>
 
 
                         </div>
