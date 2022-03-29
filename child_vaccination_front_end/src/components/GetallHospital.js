@@ -21,6 +21,15 @@ class GetallHospital extends React.Component{
         this.props.history.push("/adminhome");
     }
 
+    delete = (hid) => {
+
+        axios.delete(`http://localhost:9090/admin/deleteHospital/${hid}`)
+            .then(res => {
+
+                this.props.history.push("/getallhospital");
+            });
+    }
+
     render(){
         return(
             <div>
@@ -28,7 +37,8 @@ class GetallHospital extends React.Component{
                 <div><br /><br />
                     <h3 style={{ color: 'wheat' }}>All Hospitals</h3>
 
-                    <table className="table table-bordered table-striped table-dark" style={{ width: "70%" }} responsive="xl">
+                     <table className="table table-bordered table-striped table-dark" style={{ width: "70%" }} responsive="xl">
+
                         <thead>
                             <th>Name</th>                           
                             <th>Email</th>
@@ -36,7 +46,8 @@ class GetallHospital extends React.Component{
                             <th>Address</th>
                             <th>Pincode</th>
                             <th>Reg No</th>
-                            <th>Creation Date</th>                           
+                            <th>Creation Date</th>    
+                            <th>Action</th>                        
                         </thead>                       
                         {this.state.hospitalData.map(h =>
 
@@ -48,6 +59,7 @@ class GetallHospital extends React.Component{
                                 <td>{h.pincode}</td>
                                 <td>{h.regNo}</td>
                                 <td>{h.creationDate}</td>
+                                <td><button type="button" className="btn  btn-info  rounded-pill" style={{color :"white"}} onClick={() => this.delete(h.hid)}>Delete</button></td>
                                                             
                             </tbody>)
                         }
