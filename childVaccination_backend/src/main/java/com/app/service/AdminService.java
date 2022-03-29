@@ -26,7 +26,6 @@ public class AdminService {
 		}
 		else
 			throw new ResourceNotFoundException("no user registered with   "+obj.getUsername()+"   username");
-		
 	}
 
 }
