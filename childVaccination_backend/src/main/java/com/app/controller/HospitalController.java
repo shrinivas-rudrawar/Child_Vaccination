@@ -19,6 +19,7 @@ import com.app.pojos.Hospital;
 import com.app.pojos.Vaccine_Details;
 import com.app.service.ChildService;
 import com.app.service.HospitalService;
+import com.app.service.VaccineService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -29,6 +30,9 @@ public class HospitalController {
 	private HospitalService hospitalService;
 	@Autowired
 	private ChildService childService;
+	
+	@Autowired
+	private VaccineService vaccineService;
 	
 	@PostMapping("/hospitalregister")
 	public Hospital registerHospital(@RequestBody RegisterHospital hospital) {
@@ -54,6 +58,13 @@ public class HospitalController {
 	@GetMapping("/getallvaccines/{hid}")
 	public List<Vaccine_Details> getallVaccines(@PathVariable("hid") int hid){
 		return hospitalService.getallVaccines(hid);		
+	}
+	
+	@PostMapping("/addVaccine/{hid}")
+	public void addVaccine(@PathVariable("hid") int hid,@RequestBody Vaccine_Details vaccine){
+		//System.out.println("hid    :  "+hid);
+		Vaccine_Details v= vaccineService.addvaccine(vaccine);
+		 hospitalService.addVaccine(hid,v);		
 	}
 	
 
