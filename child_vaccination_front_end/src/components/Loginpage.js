@@ -65,7 +65,7 @@ class Loginpage extends React.Component{
                     localStorage.setItem("loggedinadmin",JSON.stringify(this.state.admin));
                     mystore.dispatch({type:'LOGGEDIN'});
                     this.setState({loginerror:"You Have Successfully Logged as admin"});
-                    this.props.history.push("/adminhome");//pending
+                    this.props.history.push("/adminhome");
                    
                 }
                
@@ -94,7 +94,8 @@ class Loginpage extends React.Component{
                 <input type="password" class="form-control rounded-pill" name="password" id="password"onChange={this.handleChange}required/>
             </div>
             <br/>
-            <button type="submit" className="btn btn-primary  col-md-6 rounded-pill"style={{marginLeft:"26%"}}  onClick={this.submitData}>Sign In</button>
+            <button type="submit" className="btn btn-primary  col-md-6 rounded-pill"style={{marginLeft:"26%"}}  onClick={this.submitData}>Sign In</button><br></br>
+            <a href='/forgotpassword'>Forgot password</a>
             </form>
             {this.state.loginerror}
             </div>
