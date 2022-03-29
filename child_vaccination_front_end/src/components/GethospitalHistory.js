@@ -18,10 +18,14 @@ class GethospitalHistory extends React.Component{
                 this.setState({ hospitalData: res.data });
             });
     }
+    backtoHome  = (e) => {
+        this.props.history.push("/adminhome");
+    }
 
     render(){
         return(
             <div>
+             <button class="btn btn-primary col-md-1" type="button" onClick={this.backtoHome} style={{ float: "right" }} >Back</button><br/>
                 <div><br /><br />
                     <h3 style={{ color: 'wheat' }}>Hospital History</h3>
 
