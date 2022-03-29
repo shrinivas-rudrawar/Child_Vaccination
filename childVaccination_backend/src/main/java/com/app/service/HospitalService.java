@@ -35,6 +35,9 @@ public class HospitalService {
 	private ILoginDao loginDao;
 	@Autowired
 	private IHospitalHistoryDao hospitalHistoryDao;
+	
+	
+	
 	public Hospital registerHospital(RegisterHospital hospital) {
 		Role role=roleDao.findById(102).orElseThrow(()->new ResourceNotFoundException("Role not found !!!"));
 		
@@ -79,6 +82,13 @@ public class HospitalService {
 	public List<Vaccine_Details> getallVaccines(int hid) {
 		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
 		return h.getVaccines();
+	}
+
+	public void addVaccine(int hid,Vaccine_Details vaccine) {
+		System.out.println("hid   :  "+hid);
+		Hospital h=hospitalDao.findById(hid)
+				.orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
+		h.addVaccine(vaccine);
 	}
 
 }
