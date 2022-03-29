@@ -50,13 +50,13 @@ class Updateparent extends React.Component {
                     <h1 className="header2">Parent Updation</h1>
 
                     <form>
-                        <Form.Group className="mb-3" controlId="formBasicempid">
+                        {/* <Form.Group className="mb-2" controlId="formBasicempid">
                             <Form.Label>EmailID :</Form.Label>
                             <Form.Control type="text" placeholder="Enter empid"
                                 value={this.state.parent.email}
                                 onChange={this.handleChange} />
 
-                        </Form.Group>
+                        </Form.Group> */}
 
 
                         {/* <div>
@@ -70,23 +70,23 @@ class Updateparent extends React.Component {
                         </div> */}
 
 
-                        <div className="form-group" >
+                        <div className="form-group" class="col-md-3">
                             <label className="lb" for="email"> EmailID :</label>
                             <input type="text" id="email" className="form-control" value={this.state.parent.email} name="email" onChange={this.handleChange} />
                         </div>
-                        <div className="form-group" >
+                        <div className="form-group" class="col-md-3">
                             <label className="lb" for="contactNo">Enter Contact No. :</label>
                             <input type="number" id="contactNo" className="form-control" value={this.state.parent.mobile} name="contactNo" onChange={this.handleChange} />
                         </div>
 
 
-                        <div className="form-group" >
+                        <div className="form-group" class="col-md-3">
                             <label className="lb" for="address">Enter Address :</label>
                             <input type="text" id="address" className="form-control" value={this.state.parent.address} name="address" onChange={this.handleChange} />
                         </div>
 
                         <br></br>
-                        <div className="form-group" class="rows">
+                        <div className="form-group" class="col-md-3">
                             <button type="button" onClick={this.updateData} class="btn btn-primary col-md-5" style={{ marginLeft: "25px" }}>Update</button>
                         </div>
                     </form>
