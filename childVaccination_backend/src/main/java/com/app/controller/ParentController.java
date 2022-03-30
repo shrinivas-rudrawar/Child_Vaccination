@@ -19,6 +19,7 @@ import com.app.pojos.Child;
 import com.app.pojos.Hospital;
 import com.app.pojos.Parent;
 import com.app.pojos.Vaccine_Details;
+import com.app.service.ChildService;
 import com.app.service.HospitalService;
 import com.app.service.ParentService;
 
@@ -32,6 +33,10 @@ public class ParentController {
 	
 	@Autowired
 	private HospitalService hospitalService;
+	
+	@Autowired
+	private ChildService childService;
+	
 	
 	
 	
@@ -69,6 +74,12 @@ public class ParentController {
 	public String updateParent(@RequestBody UpdateInformation p,@PathVariable("pid") int pid) {
 		
 		return parentService.updateParentDetails(p,pid);
+	}
+	
+	@GetMapping("/getchild/{cid}")
+	public Child getChild(@PathVariable("cid") int cid) {	
+		System.out.println("cid   : "+cid);
+		return childService.getChild(cid);
 	}
 	
 
