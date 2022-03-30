@@ -67,5 +67,18 @@ public class HospitalController {
 		 hospitalService.addVaccine(hid,v);		
 	}
 	
+	@GetMapping("/getvaccine/{vid}")
+	public Vaccine_Details getvaccine(@PathVariable("vid") int vid){
+		return vaccineService.getvaccine(vid);		
+	}
+	
+	@PatchMapping("/updateVaccine/{vid}")
+	public void updateVaccine(@PathVariable("vid") int vid,@RequestBody Vaccine_Details vaccine){
+		//System.out.println("hid    :  "+hid);
+		 vaccineService.updateVaccine(vaccine);
+		 	
+	}
+	
+	
 
 }
