@@ -77,7 +77,6 @@ public class Parent {
 
 
 	
-	
 	@CreationTimestamp
 	private LocalDate creationDate;
 	
