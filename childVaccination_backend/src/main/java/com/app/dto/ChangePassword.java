@@ -11,5 +11,12 @@ public class ChangePassword {
 	private String username;
 	private String newPassword;
 	private String cnfPassword;
+	
+	/*
+	 "username" : "shri",
+	 " newPassword" :"shri",
+	 "cnfPassword" : "shri123"
+	 
+	 */
 
 }

@@ -3,6 +3,7 @@ package com.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -20,8 +21,9 @@ import com.app.service.AdminService;
 import com.app.service.HospitalService;
 import com.app.service.ParentService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping
+@RequestMapping("/admin")
 public class AdminController {
 	@Autowired
 	private ParentService parentService;
@@ -61,11 +63,13 @@ public class AdminController {
 	//tested
 	@DeleteMapping("/deleteHospital/{hid}")
 	public void deleteHospital(@PathVariable int hid) {
+		System.out.println("hid : "+hid);
 		hospitalService.deleteHospital(hid);
 	}
 	
 	@PatchMapping("/changepassword")
 	public void changePassword(@RequestBody ChangePassword obj) {
+		System.out.println(obj.toString());
 		adminService.changePassword(obj);
 	}
 

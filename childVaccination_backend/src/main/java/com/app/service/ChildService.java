@@ -28,5 +28,9 @@ public class ChildService {
 		childDao.save(c);
 		
 	}
+	public Child getChild(int cid) {
+		
+		return childDao.findById(cid).orElseThrow(()->new ResourceNotFoundException("child not found"));
+	}
 
 }

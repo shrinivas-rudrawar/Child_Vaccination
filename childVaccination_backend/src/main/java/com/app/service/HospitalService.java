@@ -14,11 +14,14 @@ import com.app.dao.ILoginDao;
 import com.app.dao.IRoleDao;
 import com.app.dto.RegisterHospital;
 import com.app.dto.UpdateInformation;
+import com.app.pojos.Child;
 import com.app.pojos.Hospital;
 import com.app.pojos.HospitaltHistory;
 import com.app.pojos.Login;
+import com.app.pojos.Parent;
 import com.app.pojos.Role;
 import com.app.pojos.UserRole;
+import com.app.pojos.Vaccine_Details;
 
 @Service
 @Transactional
@@ -32,6 +35,9 @@ public class HospitalService {
 	private ILoginDao loginDao;
 	@Autowired
 	private IHospitalHistoryDao hospitalHistoryDao;
+	
+	
+	
 	public Hospital registerHospital(RegisterHospital hospital) {
 		Role role=roleDao.findById(102).orElseThrow(()->new ResourceNotFoundException("Role not found !!!"));
 		
@@ -66,6 +72,23 @@ public class HospitalService {
 	public void deleteHospital(int hid) {
 		hospitalDao.deleteById(hid);
 		
+	}
+	
+	public List<Child> getAllChild(int hid){
+		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
+		 return h.getHChilds();
+	}
+
+	public List<Vaccine_Details> getallVaccines(int hid) {
+		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
+		return h.getVaccines();
+	}
+
+	public void addVaccine(int hid,Vaccine_Details vaccine) {
+		System.out.println("hid   :  "+hid);
+		Hospital h=hospitalDao.findById(hid)
+				.orElseThrow(()->new ResourceNotFoundException("Parennt on "+hid+" not found"));
+		h.addVaccine(vaccine);
 	}
 
 }
