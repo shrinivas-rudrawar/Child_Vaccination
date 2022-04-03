@@ -39,7 +39,7 @@ public class HospitalController {
 		 return  hospitalService.registerHospital(hospital);
 	}
 	
-	@PatchMapping("/updatehospital/{hid}")
+	@PostMapping("/updatehospital/{hid}")
 	public String updateParent(@RequestBody UpdateInformation hospital,@PathVariable("hid") int hid) {
 		return hospitalService.updateHospitalDetails(hospital,hid);
 	}
