@@ -48,8 +48,7 @@ public class ParentController {
 	
 	@GetMapping("/getallchilds/{pid}")
 	public List<Child> getAllChilds(@PathVariable("pid") int pid){
-		return parentService.getAllChild(pid);
-		
+		return parentService.getAllChild(pid);	
 	}
 	
 	@GetMapping("/getallvaccines")
