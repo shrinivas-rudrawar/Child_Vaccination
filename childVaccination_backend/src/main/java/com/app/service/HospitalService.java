@@ -53,6 +53,7 @@ public class HospitalService {
 
 	public String updateHospitalDetails(UpdateInformation hospital, int hid) {
 		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("hospital not found"));
+		//System.out.println(h.toString());
 		h.setAddress(hospital.getAddress());
 		h.setEmail(hospital.getEmail());
 		h.setContactNo(hospital.getMobile());
