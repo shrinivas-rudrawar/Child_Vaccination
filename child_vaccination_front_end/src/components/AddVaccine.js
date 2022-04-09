@@ -61,30 +61,40 @@ class AddVaccine extends React.Component {
                 <form>
                     <div className="form-group" class="col-md-2">
                         <label className="lb" for="vname">Enter Vaccine Name :</label>
-                        <input type="text" id="vname" className="form-control" name="vname" onChange={this.handleChange} required />
+                        <input type="text" id="vname" className="form-control" name="vname" onChange={this.handleChange} required 
+                            placeholder="Enter Vaccine Name  "
+                        />
                     </div>
 
                     <div className="form-group" class="col-md-2">
                         <label className="lb" for="description">Enter Description :</label>
-                        <input type="text" id="description" className="form-control" name="description" onChange={this.handleChange} required />
+                        <input type="text" id="description" className="form-control" name="description" onChange={this.handleChange} required 
+                            placeholder="Enter Description "
+                        />
                     </div>
 
 
                     <div className="form-group" class="col-md-2">
                         <label className="lb" for="brand">Enter Brand :</label>
-                        <input type="text" id="brand" className="form-control" name="brand" onChange={this.handleChange} required /><br />
+                        <input type="text" id="brand" className="form-control" name="brand" onChange={this.handleChange} required 
+                            placeholder="Enter Brand "
+                        /><br />
                     </div>
 
 
                     <div className="form-group" class="col-md-2">
                         <label className="lb" for="type">Enter Type of vaccine :</label>
-                        <input type="text" id="type" className="form-control" name="type" onChange={this.handleChange} required /><br />
+                        <input type="text" id="type" className="form-control" name="type" onChange={this.handleChange} required 
+                            placeholder="Enter Type of vaccine "
+                        /><br />
                     </div>
 
 
                     <div className="form-group" class="col-md-2">
                         <label className="lb" for="price">Enter Price :</label>
-                        <input type="number" id="price" className="form-control" name="price" onChange={this.handleChange} required /><br />
+                        <input type="number" id="price" className="form-control" name="price" onChange={this.handleChange} required 
+                            placeholder="Enter Price "
+                        /><br />
                     </div>
 
                     
