@@ -4,12 +4,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.app.pojos.Parent;
 @Repository
 public interface IParentDao extends JpaRepository<Parent, Integer>{
-	
+
+	PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 	@Query(value = "CALL FIND_PARENT_bY_LOGINID(:loginId );", nativeQuery = true)
 	Parent findParent(@Param("loginId") Integer loginId);
 	
