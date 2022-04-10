@@ -15,14 +15,14 @@ class Home extends React.Component {
                   <img
                     style={{ height: "550px"}}
                     className="d-block w-100"
-                    src="https://www.expatica.com/app/uploads/sites/5/2019/07/vaccinations-in-france-1920x1080.jpg"
+                    src="http://127.0.0.1:5500/src/images/img3.jpg"
                     alt="Child Vaccination"
                   />
                  
     
                   <Carousel.Caption>
                     <h4 style={{color:"gold"}}>Vaccination Need</h4>
-                    <h6 style={{color:"wheat"}}>Vaccination protects children from serious illness and complications of vaccine-preventable 
+                    <h6 style={{color:"black"}}>Vaccination protects children from serious illness and complications of vaccine-preventable 
                     diseases which can include amputation of an arm or leg, paralysis of limbs, hearing loss, convulsions, brain damage, and death.
                     Vaccine-preventable diseases, such as measles, mumps, and whooping cough, are still a threat.
                     If children aren’t vaccinated, they can spread the disease to other children who are too young to be vaccinated or to people
