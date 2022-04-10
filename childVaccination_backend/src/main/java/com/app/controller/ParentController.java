@@ -42,7 +42,6 @@ public class ParentController {
 	
 	@PostMapping("/registerParent")
 	public Parent addParent(@RequestBody RegisterParent regP) {
-		
 		return parentService.registerParent(regP);
 	}
 	
