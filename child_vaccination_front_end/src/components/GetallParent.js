@@ -22,12 +22,12 @@ class GetallParent extends React.Component{
     }
 
     updateStatus = (pid) => {
-
+        //confirm("are you sure to delete?")
         axios.delete(`http://localhost:9090/admin/deleteParent/${pid}`)
             .then(res => {
-
                 this.props.history.push("/getallparent");
             });
+            this.props.history.push("/getallparent");
     }
 
     render(){
