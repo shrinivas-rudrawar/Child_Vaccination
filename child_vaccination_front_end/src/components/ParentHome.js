@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
@@ -32,22 +34,34 @@ class ParentHome extends React.Component {
     }
 
 
-    logout = () => {
+    logout = (e) => {
+        e.preventDefault();
         //mystore.dispatch({type:'LOGGEDOUT'});
         localStorage.removeItem("loggedinuser");
         this.props.history.push("/");
     }
 
+    getCertificate = (e,child) => {
+        e.preventDefault();
+        if(child.status==="VACCINATED"){
+            this.props.history.push(`/getcertificate/${child.cid}`);
+        }else{
+            toast("Child is not vaccinated")
+            this.props.history.push(`/parenthome`);
+        }
+       
+    }
+
     render() {
         return (
-
+            <>
             <div>
                 <BrowserRouter>
                     <ul className="nav" style={{ marginLeft: "20%" }}>
-                        <li className="nav-items"><Link className="nav-link" to="/vaccinedetails"><b className="b">Vaccine Info</b> </Link> </li>
+                        <li className="nav-items"><a className="nav-link" href="/vaccinedetails"><b className="b">Vaccine Info</b> </a> </li>
                         <li className="nav-items"><a className="nav-link" href="/childregister"><b className="b">Add child</b></a></li>
-                        <li className="nav-items"> <Link className="nav-link" to="/editparentprofile"><b className="b">Edit profile</b></Link></li>
-                        <li className="nav-items"> <Link className="nav-link" to="/logout"><b className="b">Logout</b></Link></li>
+                        <li className="nav-items"> <a className="nav-link" href="/editparentprofile"><b className="b">Edit profile</b></a></li>
+                        <li className="nav-items"> <a className="nav-link" href="/logout"><b className="b">Logout</b></a></li>
                     </ul>
                 </BrowserRouter>
                 
@@ -69,6 +83,7 @@ class ParentHome extends React.Component {
                             <th>CHILD LAST NAME</th>
                             <th>DOB</th>
                             <th>STATUS</th>
+                            <th>Certificate</th>
 
                         </thead>
                         {this.state.childs.map(child =>
@@ -79,6 +94,7 @@ class ParentHome extends React.Component {
                                 <td>{child.clname}</td>
                                 <td>{child.dob}</td>
                                 <td>{child.status}</td>
+                                <td><button type="button" className="btn  btn-info  rounded-pill" style={{color :"white"}} onClick={(e) => this.getCertificate(e,child)}>Get Certificate</button></td>
                             </tbody>)
                         }
                     </table>
@@ -86,6 +102,8 @@ class ParentHome extends React.Component {
                 <button type="submit" class="btn btn-info col-md-2 rounded-pill" onClick={this.logout}>Sign Out</button><br />
 
             </div>
+            <ToastContainer/>
+            </>
         )
     }
 }
