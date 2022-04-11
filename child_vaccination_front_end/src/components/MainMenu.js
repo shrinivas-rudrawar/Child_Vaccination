@@ -4,16 +4,26 @@ import { Route } from 'react-router';
 import Home from './Home';
 import mystore from './store';
 import ParentRegistrationForm from './ParentRegistrationForm';
+import  ParentRegistrationForm1 from './ParentRegistrationForm1';
+
 import Loginpage from './Loginpage';
 import HospitalRegisterForm from './HospitalRegisterForm';
+import HospitalRegisterForm1 from './HospitalRegisterForm1';
 import ParentHome from './ParentHome';
 import ChildRegisterForm from './ChildRegisterForm';
+import ChildRegisterForm1 from './ChildRegisterForm1';
 import Vaccinedetails from './Vaccinedetails';
-import Updateparent from './Updateparent';
+import Updateparent1 from './Updateparent1';
 import Logout from './Logout';
 
 import UpdateHospital from './UpdateHospital';
+import UpdateHospital1 from './UpdateHospital1';
 import HospitalHome from './HospitalHome';
+import AddVaccine from './AddVaccine';
+import UpdateVaccine from './UpdateVaccine';
+
+
+
 
 import AdminHome from './AdminHome';
 import GetallParent from './GetallParent';
@@ -23,9 +33,7 @@ import GethospitalHistory from './GethospitalHistory';
 
 import ForgotPassword from './ForgotPassword';
 import Certificate from './Certificate';
-
-
-
+import GetAllVaccines from './GetAllVaccines';
 
 
 class MainMenu extends React.Component {
@@ -53,16 +61,22 @@ class MainMenu extends React.Component {
                         <div>
                             <Route exact path="/" component={Home} />
                             <Route exact path="/login" component={Loginpage}></Route>
-                            <Route exact path="/parentregister" component={ParentRegistrationForm}></Route>
-                            <Route exact path="/hospitalregister" component={HospitalRegisterForm}></Route>
-                            <Route exact path="/childregister" component={ChildRegisterForm}></Route>
+                            <Route exact path="/parentregister" component={ParentRegistrationForm1}></Route>
+                            <Route exact path="/hospitalregister" component={HospitalRegisterForm1}></Route>
+                            <Route exact path="/childregister" component={ChildRegisterForm1}></Route>
                             <Route exact path="/vaccinedetails" component={Vaccinedetails}></Route>
-                            <Route exact path="/editparentprofile" component={Updateparent}></Route>
+                            <Route exact path="/editparentprofile" component={Updateparent1}></Route>
                             <Route exact path="/logout" component={Logout}></Route>
 
 
 
-                            <Route exact path="/edithospital" component={UpdateHospital}></Route>
+                            <Route exact path="/edithospital" component={UpdateHospital1}></Route>
+                            <Route exact path="/updatevaccines/:vid" component={UpdateVaccine}></Route>
+                            <Route exact path="/addvaccine" component={AddVaccine}></Route>
+                            <Route exact path="/getallhospitalvaccine" component={GetAllVaccines}></Route>
+
+                            
+
 
                             <Route path="/adminhome" component={AdminHome}></Route>
                             <Route path="/getallparent" component={GetallParent}></Route>
@@ -73,7 +87,6 @@ class MainMenu extends React.Component {
                             <Route path="/forgotpassword" component={ForgotPassword}></Route>
 
                             <Route path="/getcertificate/:cid" component={Certificate}></Route>
-
 
                         </div>
 
