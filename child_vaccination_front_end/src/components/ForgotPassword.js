@@ -38,22 +38,28 @@ class Loginpage extends React.Component{
     render(){
         return(
             <div className="container">
-           <h1 className="header">Sign In</h1>
+           <h1 className="header">Forgot password</h1>
            <form className="loginstyle">
             <div>
                 
                 <label className="lb"  for="username">Username</label>
-                <input type="username" class="form-control rounded-pill" id="username"name="username"onChange={this.handleChange}required/>
+                <input type="username" class="form-control rounded-pill" id="username"name="username"onChange={this.handleChange} required
+                     placeholder="Enter Username"
+                />
         
             </div>
             <div>
                 <label className="lb"  for="newPassword">Enter new Password</label>
-                <input type="password" class="form-control rounded-pill" name="newPassword" id="newPassword" onChange={this.handleChange}required/>
+                <input type="password" class="form-control rounded-pill" name="newPassword" id="newPassword" onChange={this.handleChange} required
+                     placeholder="Enter new Password"
+                />
             </div>
 
             <div>
                 <label className="lb"  for="cnfPassword">Confirm Password</label>
-                <input type="password" class="form-control rounded-pill" name="cnfPassword" id="cnfPassword" onChange={this.handleChange}required/>
+                <input type="password" class="form-control rounded-pill" name="cnfPassword" id="cnfPassword" onChange={this.handleChange} required
+                     placeholder="Confirm Password"
+                />
             </div>
 
             <br/>

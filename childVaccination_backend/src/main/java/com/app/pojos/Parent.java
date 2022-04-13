@@ -44,10 +44,10 @@ public class Parent {
 	private int pid;
 	@Column(name="firstName",length=45)
 	@NotEmpty(message = "Invalid first name")
-	//@Length(min=2)
+	@Length(min=2)
 	private String fname;
 	@NotEmpty(message = "Invalid last name")
-	//@Length(min=5)
+	@Length(min=4)
 	@Column(name="lastName",length=45)
 	private String lname;
 	@Column(length=25)
@@ -55,7 +55,7 @@ public class Parent {
 	@Column(name="mobileNo")
 	private long mobile;
 	@NotEmpty(message = "Invalid Address")
-	//@Length(min=5)
+	@Length(min=5)
 	@Column
 	private String address;
 	//@Length(min=12,max=12)

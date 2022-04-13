@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.custom_exception.ResourceNotFoundException;
@@ -51,11 +52,11 @@ public class ParentService {
 	
 	
 	public Parent registerParent(RegisterParent regP) {
-		//System.out.println(regP);
+		System.out.println(regP.getContactNo());
 		Role role = roleDao.findById(101).orElseThrow(()->new ResourceNotFoundException("Role not found !!!"));/*roleService.getSpecificRole(101);*/
-				
+		String encodedPassword=	new BCryptPasswordEncoder().encode(regP.getPassword());
 		//System.out.println(role);
-		Login plogin=loginDao.save(new Login(regP.getUsername(),regP.getPassword(),role));
+		Login plogin=loginDao.save(new Login(regP.getUsername(),encodedPassword,role));
 		return parentDao.save(new Parent(regP.getFname(),regP.getLname(),regP.getEmail(),regP.getContactNo(),regP.getAddress(),regP.getAdharNo(),plogin));
 	}
 	

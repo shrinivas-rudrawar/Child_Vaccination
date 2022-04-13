@@ -66,7 +66,7 @@ class ChildRegisterForm extends React.Component {
                 <form method='post'>
                     <div className="form-group" class="col-md-3">
                         <label className="lb" for="fname">Enter First Name :</label>
-                        <input type="text" id="fname" className="form-control" name="fname" onChange={this.handleChange} required />
+                        <input type="text" id="fname" className="form-control" name="fname" onChange={this.handleChange} required  autofocus/>
                     </div>
 
                     <div className="form-group" class="col-md-3">
@@ -77,7 +77,7 @@ class ChildRegisterForm extends React.Component {
 
                     <div className="form-group" class="col-md-3">
                         <label className="lb" for="dob">Enter Date of Birth :</label>
-                        <input type="date" id="dob" className="form-control" name="dob" onChange={this.handleChange} required /><br />
+                        <input type="date" id="dob"  max="2016-12-31" min="2000-01-01" className="form-control" name="dob" onChange={this.handleChange} required /><br />
                     </div>
 
                     <div className="form-group" class="col-md-3">

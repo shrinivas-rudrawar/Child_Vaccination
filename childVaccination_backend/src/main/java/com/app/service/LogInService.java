@@ -1,21 +1,20 @@
 package com.app.service;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.app.custom_exception.ResourceNotFoundException;
 import com.app.dao.HospitalDao;
 import com.app.dao.IAdminDao;
 import com.app.dao.IChildDao;
 import com.app.dao.ILoginDao;
 import com.app.dao.IParentDao;
-import com.app.dto.ResponseParentLogin;
-import com.app.pojos.Child;
 import com.app.pojos.Login;
-import com.app.pojos.Parent;
 
 @Service
 @Transactional
@@ -33,27 +32,36 @@ public class LogInService {
 	private IChildDao childDao;
 
 	public Object ValidateUser(String username, String passwiord) {
-		Login login = loginDao.findByUsernameAndPassword(username, passwiord);
+		// Login login = loginDao.findByUsernameAndPassword(username, passwiord);
+		Login login1 = loginDao.findByUsername(username);
+		PasswordEncoder passencoder = new BCryptPasswordEncoder();
+		String encodedPassword = login1.getPassword();
+		boolean flag = passencoder.matches(passwiord, encodedPassword);
+		if (flag) {
+			if (login1.getRole().getRoleId() == 101) {
+				// Parent p= parentDao.findParent(login.getLoginId());
+				int pid = parentDao.findParentId(login1.getLoginId());
+				return parentDao.findParent1(pid);
 
-		if (login.getRole().getRoleId() == 101) {
-			//Parent p= parentDao.findParent(login.getLoginId());
-			int pid=parentDao.findParentId(login.getLoginId());
-			return parentDao.findParent1(pid);
-			
 //			Parent p=parentDao.findParent(login.getLoginId());
 //			List<Child> childs=childDao.findChildByParent(p.getPid());
 //			return new ResponseParentLogin(p,childs);
+			} else if (login1.getRole().getRoleId() == 102) {
+				return hospitalDao.findHospital(login1.getLoginId());
+			} else if (login1.getRole().getRoleId() == 103) {
+				// System.out.println(adminDao.findByAdminName("admin"));
+				return adminDao.findByAdminName("admin");
+			}
 		}
-		else if(login.getRole().getRoleId() == 102) {
-			return hospitalDao.findHospital(login.getLoginId());
-		}
-		else if(login.getRole().getRoleId() == 103) {
-			//System.out.println(adminDao.findByAdminName("admin"));
-			return adminDao.findByAdminName("admin");
-		}
-			
-		return null;
+
+		throw new ResourceNotFoundException("Invalid credential");
 
 	}
+//	public boolean userPasswordCheck(String password, User user) {
+//
+//	    PasswordEncoder passencoder = new BCryptPasswordEncoder();
+//	    String encodedPassword = user.getPassword();
+//	    return passencoder.matches(password, encodedPassword);
+//	}
 
 }

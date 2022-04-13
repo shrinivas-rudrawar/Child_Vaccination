@@ -42,14 +42,12 @@ public class ParentController {
 	
 	@PostMapping("/registerParent")
 	public Parent addParent(@RequestBody RegisterParent regP) {
-		
 		return parentService.registerParent(regP);
 	}
 	
 	@GetMapping("/getallchilds/{pid}")
 	public List<Child> getAllChilds(@PathVariable("pid") int pid){
-		return parentService.getAllChild(pid);
-		
+		return parentService.getAllChild(pid);	
 	}
 	
 	@GetMapping("/getallvaccines")

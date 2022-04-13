@@ -15,23 +15,22 @@ class AdminHome extends React.Component{
         this.setState({[nm]:val});
     }
 
-    logout = () => {
+    logout = (e) => {
+        e.preventDefault();
         //mystore.dispatch({type:'LOGGEDOUT'});
         localStorage.removeItem("loggedinadmin");
         this.props.history.push("/");
     }
-
-
 
     render(){
         return(
             <div>
                 <BrowserRouter>
                     <ul className="nav" style={{ marginLeft: "20%" }}>
-                        <li className="nav-items"><Link className="nav-link" to="/getallparent"><b className="b">Get All Parent</b> </Link> </li>
+                        <li className="nav-items"><a className="nav-link" href="/getallparent"><b className="b">Get All Parent</b> </a> </li>
                         <li className="nav-items"><a className="nav-link" href="/getallhospital"><b className="b">Get All Hospital</b></a></li>
-                        <li className="nav-items"> <Link className="nav-link" to="/getparenthistory"><b className="b">Parent History</b></Link></li>
-                        <li className="nav-items"> <Link className="nav-link" to="/gethospitalhistory"><b className="b">Hospital History</b></Link></li>
+                        <li className="nav-items"> <a className="nav-link" href="/getparenthistory"><b className="b">Parent History</b></a></li>
+                        <li className="nav-items"> <a className="nav-link" href="/gethospitalhistory"><b className="b">Hospital History</b></a></li>
                         
                     </ul>
                 </BrowserRouter>

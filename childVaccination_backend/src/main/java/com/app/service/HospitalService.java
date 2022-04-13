@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.custom_exception.ResourceNotFoundException;
@@ -40,9 +41,10 @@ public class HospitalService {
 	
 	public Hospital registerHospital(RegisterHospital hospital) {
 		Role role=roleDao.findById(102).orElseThrow(()->new ResourceNotFoundException("Role not found !!!"));
-		
-		Login hlogin= loginDao.save(new Login(hospital.getUsername(),hospital.getPassword(),role));
+		String encodedPassword=	new BCryptPasswordEncoder().encode(hospital.getPassword());
+		Login hlogin= loginDao.save(new Login(hospital.getUsername(),encodedPassword,role));
 		//System.out.println(hospital);
+		
 		return hospitalDao.save(new Hospital(hospital.getHname(),hospital.getEmail(),hospital.getContactNo(),hospital.getAddress(),hospital.getRegNo(),hlogin,hospital.getPincode()));
 //		
 	}
@@ -53,6 +55,7 @@ public class HospitalService {
 
 	public String updateHospitalDetails(UpdateInformation hospital, int hid) {
 		Hospital h=hospitalDao.findById(hid).orElseThrow(()->new ResourceNotFoundException("hospital not found"));
+		//System.out.println(h.toString());
 		h.setAddress(hospital.getAddress());
 		h.setEmail(hospital.getEmail());
 		h.setContactNo(hospital.getMobile());
