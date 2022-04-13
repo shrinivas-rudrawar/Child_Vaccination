@@ -1,7 +1,6 @@
 
 import axios from 'axios';
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
 
 
 class UpdateHospital extends React.Component {
@@ -38,6 +37,7 @@ class UpdateHospital extends React.Component {
             })
     }
     backtoHome  = (e) => {
+        e.preventDefault();
         this.props.history.push("/hospitalhome");
     }
 
