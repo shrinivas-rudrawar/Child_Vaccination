@@ -36,6 +36,7 @@ class Updateparent extends React.Component {
             })
     }
     backtoHome  = (e) => {
+        e.preventDefault();
         this.props.history.push("/parenthome");
     }
 
